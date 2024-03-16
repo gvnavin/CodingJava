@@ -1,4 +1,4 @@
-// Template for printing the linked list with forward arrows
+package utils;// Template for printing the linked list with forward arrows
 
 public class PrintList {
     public static void printListWithForwardArrow(LinkedListNode head) {

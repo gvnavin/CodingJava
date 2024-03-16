@@ -1,12 +1,13 @@
-import java.util.*;
+package utils;
+
 // Template for the linked list
-class LinkedList<T> {
+public class LinkedList<T> {
     public LinkedListNode head;
-    // constructor will be used to make a LinkedList type object
+    // constructor will be used to make a utils.LinkedList type object
     public LinkedList() {
         this.head = null;
     }
-    // insertNodeAtHead method will insert a LinkedListNode at head
+    // insertNodeAtHead method will insert a utils.LinkedListNode at head
     // of a linked list.
     public void insertNodeAtHead(LinkedListNode node) {
         if (this.head == null) {

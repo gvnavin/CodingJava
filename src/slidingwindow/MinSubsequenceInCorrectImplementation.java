@@ -1,3 +1,5 @@
+package slidingwindow;
+
 import java.util.*;
 
 public class MinSubsequenceInCorrectImplementation {

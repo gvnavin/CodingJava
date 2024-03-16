@@ -1,3 +1,5 @@
+package utils;
+
 public class Print {
 
     public static String repeat(String c, int count) {

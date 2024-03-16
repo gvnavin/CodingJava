@@ -1,3 +1,5 @@
+package slidingwindow;
+
 public class MinSubsequence {
 
     static class ReturnHolder {

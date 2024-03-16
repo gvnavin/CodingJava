@@ -1,3 +1,9 @@
+package fastslowptrs;
+
+import utils.LinkedList;
+import utils.LinkedListNode;
+import utils.PrintList;
+
 public class PalindromeLinkedList {
 
     public static void reverse(LinkedListNode from, LinkedListNode end) {

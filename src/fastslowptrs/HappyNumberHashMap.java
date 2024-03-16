@@ -1,3 +1,5 @@
+package fastslowptrs;
+
 import java.util.*;
 
 public class HappyNumberHashMap {

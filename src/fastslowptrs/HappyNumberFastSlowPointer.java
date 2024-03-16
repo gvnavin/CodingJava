@@ -1,3 +1,5 @@
+package fastslowptrs;
+
 import java.util.HashSet;
 
 public class HappyNumberFastSlowPointer {
