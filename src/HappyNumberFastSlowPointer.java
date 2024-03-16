@@ -1,6 +1,6 @@
-import java.util.*;
+import java.util.HashSet;
 
-public class HappyNumber {
+public class HappyNumberFastSlowPointer {
 
     public static int sumOfSquares(int inp) {
         int sum = 0;
@@ -14,16 +14,26 @@ public class HappyNumber {
 
     public static boolean isHappyNumber(int n) {
 
-        HashSet<Integer> hs = new HashSet<Integer>();
+        int fast = n;
+        int slow = n;
 
-        do {
-            if (hs.contains(n)) {
+        while(true) {
+            fast = sumOfSquares(fast);
+            if (fast == 1) {
+                return true;
+            }
+            fast = sumOfSquares(fast);
+            if (fast == 1) {
+                return true;
+            }
+            slow = sumOfSquares(slow);
+//            if (slow == 1) {
+//                return true;
+//            }
+            if (fast == slow) {
                 return false;
             }
-            hs.add(n);
-            n = sumOfSquares(n);
-        } while(n > 1);
-
-        return true;
+        }
     }
+
 }

@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class MinSubsequence {
+public class MinSubsequenceInCorrectImplementation {
 
     public static class IndAndVal {
         public int ind;
@@ -80,40 +80,52 @@ public class MinSubsequence {
             ths.put(c, cnt+1);
         }
 
-        //initial beg
+        //initial beg and end
         int beg = 0;
+        int end = -1;
+
         for(int i = 0; i < s.length(); i++) {
-            if (ths.containsKey(s.charAt(i))) {
-                beg = i;
-                chm.put(new IndAndVal(i, s.charAt(i)));
-                break;
-            }
-        }
-
-        //initial end
-        int end = beg+1;
-
-        System.out.println("1. initial beg: " + beg + " end: " + end + "  " + s.substring(beg, end+1));
-
-        for(int i = end; i < s.length(); i++) {
             char c = s.charAt(i);
-            System.out.println("2. i : " + i + " c: " + c);
             if (ths.containsKey(c)) {
-                System.out.println("3. i : " + i + " c: " + c);
+                beg = i;
                 chm.put(new IndAndVal(i, c));
                 if (chm.getFreqCnt(c) >= ths.get(c) && chm.getSize() >= t.length()) {
-                    System.out.println("4. i : " + i + " c: " + c);
+//                    System.out.println("4. i : " + i + " c: " + c);
                     if (check(chm, ths)) {
-                        System.out.println("5. i : " + i + " c: " + c);
+//                        System.out.println("5. i : " + i + " c: " + c);
                         end = i;
                         break;
                     }
                 }
+                break;
             }
-            System.out.println("----------------");
         }
 
-        System.out.println("initial beg: " + beg + " end: " + end + "  " + s.substring(beg, end+1));
+        if (end == -1) {
+            end = beg + 1;
+//     System.out.println("1. initial beg: " + beg + " end: " + end + "  " + s.substring(beg, end));
+
+            for(int i = end; i < s.length(); i++) {
+                char c = s.charAt(i);
+//            System.out.println("2. i : " + i + " c: " + c);
+                if (ths.containsKey(c)) {
+                    System.out.println("3. i : " + i + " c: " + c);
+                    chm.put(new IndAndVal(i, c));
+                    if (chm.getFreqCnt(c) >= ths.get(c) && chm.getSize() >= t.length()) {
+//                    System.out.println("4. i : " + i + " c: " + c);
+                        if (check(chm, ths)) {
+//                        System.out.println("5. i : " + i + " c: " + c);
+                            end = i;
+                            break;
+                        }
+                    }
+                }
+//            System.out.println("----------------");
+            }
+
+//        System.out.println("initial beg: " + beg + " end: " + end + "  " + s.substring(beg, end));
+
+        }
 
         int minBeg = beg;
         int minEnd = end;

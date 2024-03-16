@@ -1,151 +1,71 @@
-import java.util.*;
+public class MinSubsequence {
 
-public class MinSubsequenceInCorrectImplementation {
+    static class ReturnHolder {
+        String str;
+        int index;
 
-    public static class IndAndVal {
-        public int ind;
-        public char c;
-
-        public IndAndVal(int ind, char c) {
-            this.ind = ind;
-            this.c = c;
+        public ReturnHolder(String str, int index) {
+            this.str = str;
+            this.index = index;
         }
-
-        @Override
-        public boolean equals(Object o) {
-            if (this == o) return true;
-            if (o == null || getClass() != o.getClass()) return false;
-            IndAndVal indAndVal = (IndAndVal) o;
-            return ind == indAndVal.ind && c == indAndVal.c;
-        }
-
-        @Override
-        public int hashCode() {
-            return Objects.hash(ind, c);
-        }
-
-        @Override
-        public String toString() {
-            return "IndAndVal{" +
-                    "ind=" + ind +
-                    ", c=" + c +
-                    '}';
-        }
-    }
-
-    static class CustomHashMap {
-        HashSet<IndAndVal> hs = new HashSet<IndAndVal>();
-        HashMap<Character, Integer> hm = new HashMap<>();
-
-        public int getSize() {
-            return hs.size();
-        }
-
-        public int getFreqCnt(Character c) {
-            return hm.getOrDefault(c, 0);
-        }
-
-        public void remove(IndAndVal indAndVal) {
-            hs.remove(indAndVal);
-            int cnt = hm.get(indAndVal.c);
-            hm.put(indAndVal.c, cnt-1);
-        }
-
-        public void put(IndAndVal indAndVal) {
-            hs.add(indAndVal);
-            int cnt = hm.getOrDefault(indAndVal.c, 0);
-            hm.put(indAndVal.c, cnt+1);
-        }
-
-    }
-
-    public static boolean check(CustomHashMap chm, HashMap<Character, Integer> hm) {
-        for(Map.Entry<Character, Integer> e : hm.entrySet()) {
-            System.out.println("check: " + chm.getFreqCnt(e.getKey()) + ", e.getKey() : " + e.getKey() + " " + e.getValue());
-            if (chm.getFreqCnt(e.getKey()) < e.getValue()) {
-                return false;
-            }
-        }
-        return true;
     }
 
     public static String minWindow(String s, String t) {
 
-        CustomHashMap chm = new CustomHashMap();
+        int si = 0;
+        int minLength = Integer.MAX_VALUE;
+        String minWindow = "";
 
-        HashMap<Character, Integer> ths = new HashMap<>();
-        for(int i=0; i < t.length(); i++) {
-            char c = t.charAt(i);
-            int cnt = ths.getOrDefault(c, 0);
-            ths.put(c, cnt+1);
-        }
-
-        //initial beg
-        int beg = 0;
-        for(int i = 0; i < s.length(); i++) {
-            if (ths.containsKey(s.charAt(i))) {
-                beg = i;
-                chm.put(new IndAndVal(i, s.charAt(i)));
+        while (si < s.length()) {
+            ReturnHolder returnHolder = findWindow(s, t, si);
+            if (returnHolder == null) {
                 break;
             }
-        }
-
-        //initial end
-        int end = beg+1;
-
-        System.out.println("1. initial beg: " + beg + " end: " + end + "  " + s.substring(beg, end+1));
-
-        for(int i = end; i < s.length(); i++) {
-            char c = s.charAt(i);
-            System.out.println("2. i : " + i + " c: " + c);
-            if (ths.containsKey(c)) {
-                System.out.println("3. i : " + i + " c: " + c);
-                chm.put(new IndAndVal(i, c));
-                if (chm.getFreqCnt(c) >= ths.get(c) && chm.getSize() >= t.length()) {
-                    System.out.println("4. i : " + i + " c: " + c);
-                    if (check(chm, ths)) {
-                        System.out.println("5. i : " + i + " c: " + c);
-                        end = i;
-                        break;
-                    }
-                }
+            int localLength = returnHolder.str.length();
+            if (localLength < minLength) {
+                minLength = localLength;
+                minWindow = returnHolder.str;
             }
-            System.out.println("----------------");
+            si = returnHolder.index+1;
         }
+        return minWindow;
 
-        System.out.println("initial beg: " + beg + " end: " + end + "  " + s.substring(beg, end+1));
+    }
 
-        int minBeg = beg;
-        int minEnd = end;
-        int minLen = end-beg+1;
-
-        while(beg < end && end < s.length()) {
-
-            System.out.println("while beg: " + beg + " end: " + end);
-
-            if (check(chm, ths)) {
-                int newLen = end-beg+1;
-                if (newLen < minLen) {
-                    minBeg = beg;
-                    minEnd = end;
+    private static ReturnHolder findWindow(String s, String t, int si) {
+        System.out.println("findWindow s = " + s + ", t = " + t + ", si = " + si);
+        int ti = 0;
+        while (si < s.length()) {
+            if (s.charAt(si) == t.charAt(ti)) {
+                if (ti == t.length() - 1) {
+                    int st = findBeginningOfSubsequence(s, t, si);
+                    return new ReturnHolder(s.substring(st, si + 1), st);
+                } else {
+                    si++;
+                    ti++;
                 }
-                if (ths.containsKey(s.charAt(beg))) {
-                    chm.remove(new IndAndVal(beg, s.charAt(beg)));
-                }
-                beg++;
             } else {
-                end++;
-                if (end < s.length()) {
-                    if (ths.containsKey(s.charAt(end))) {
-                        chm.put(new IndAndVal(end, s.charAt(end)));
-                    }
-                }
+                si++;
             }
         }
+        return null;
+    }
 
-        System.out.println("ret beg: " + minBeg + " end: " + minEnd + "  " + s.substring(minBeg, minEnd+1));
-
-        return s.substring(minBeg, minEnd+1);
+    private static int findBeginningOfSubsequence(String s, String t, int si) {
+        System.out.println("findBeginningOfSubsequence s = " + s + ", t = " + t + ", si = " + si);
+        int ti = t.length() - 1;
+        while (si >= 0 && ti >= 0) {
+            System.out.println("findBeginningOfSubsequence si = " + si + " ti = " + ti + ", s.charAt(si) = " + s.charAt(si) + ", t.charAt(ti) = " + t.charAt(ti));
+            if (s.charAt(si) == t.charAt(ti)) {
+                si--;
+                ti--;
+            } else {
+                si--;
+            }
+        }
+        System.out.println("findBeginningOfSubsequence si = " + si);
+        System.out.println("findBeginningOfSubsequence -------------------------------");
+        return si + 1;
     }
 
     // Driver code

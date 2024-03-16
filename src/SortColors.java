@@ -1,6 +1,4 @@
-import java.util.*;
-
-class Main {
+class SortColors {
 
 //    static class Counts {
 //        int zero;
@@ -113,14 +111,6 @@ class Main {
         return sb.toString();
     }
 
-    public static String repeat(String c, int count) {
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < count; i++) {
-            sb.append(c);
-        }
-        return sb.toString();
-    }
-
     // Driver code
     public static void main(String[] args) {
         int[][] inputs = {
@@ -137,7 +127,7 @@ class Main {
             int[] sortedColors = sortColors(inputs[i].clone());
             System.out.println("\n\tThe sorted array is: " + arrayToString(sortedColors));
 
-            System.out.println(repeat("-", 100));
+            System.out.println(Print.repeat("-", 100));
         }
     }
 }

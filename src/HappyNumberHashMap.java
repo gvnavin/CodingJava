@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class HappyNumber {
+public class HappyNumberHashMap {
 
     public static int sumOfSquares(int inp) {
         int sum = 0;
