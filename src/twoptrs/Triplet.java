@@ -1,3 +1,5 @@
+package twoptrs;
+
 import java.util.*;
 
 public class Triplet {
