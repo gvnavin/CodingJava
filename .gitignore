@@ -27,3 +27,18 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+
+*.iml
+.DS_Store
+build
+annotation-generated-src
+annotation-generated-tst
+.gradle/
+.idea/
+/buildSrc/build/
+/gradle/
+/gradlew
+/gradlew.bat
+/wrapper/
+
+.idea/aws.xml
