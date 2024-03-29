@@ -41,6 +41,9 @@ class SolveSudoku {
 
     private static boolean solveSudokuRecur(char[][] board, int i, int j) {
 
+        System.out.println("i = " + i + ", j = " + j);
+        //System.out.println("board = " + Arrays.deepToString(board) + ", i = " + i + ", j = " + j);
+
         if (j >= 9) {
             i = i + 1;
             j = 0;
@@ -53,6 +56,7 @@ class SolveSudoku {
         if (board[i][j] == '.') {
             for (int k = 0; k < chars.length; k++) {
                 if (isValid(board, i, j, chars[k])) {
+                    // System.out.println("chars[k] : " + chars[k]);
                     board[i][j] = chars[k];
                     boolean res = solveSudokuRecur(board, i, j+1);
                     if (res) {
