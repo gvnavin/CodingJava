@@ -1,4 +1,4 @@
-package ratelimit;
+package ratelimitv0gnavin;
 
 import org.junit.jupiter.api.Test;
 
@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class FixedWindowRateLimiterImplV2Test {
 
     @Test
-    void ratelimit() {
+    void ratelimit() throws InterruptedException {
 
         FixedWindowRateLimiterImplV2 fixedWindowRateLimiterImplV2 = new FixedWindowRateLimiterImplV2(1, 1, 1);
 
@@ -19,6 +19,10 @@ class FixedWindowRateLimiterImplV2Test {
         //existing customer, third request should fail based on no of allowed requests
         //used all the allowed requests and no credits
         assertFalse(fixedWindowRateLimiterImplV2.ratelimit(1));
+
+        Thread.sleep(1500);
+
+        assertTrue(fixedWindowRateLimiterImplV2.ratelimit(2));
 
     }
 }
