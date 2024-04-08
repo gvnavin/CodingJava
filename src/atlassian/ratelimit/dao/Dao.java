@@ -1,4 +1,4 @@
-package atlassian.dao;
+package atlassian.ratelimit.dao;
 
 public interface Dao<T> {
     T get(String id);

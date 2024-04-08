@@ -1,4 +1,4 @@
-package atlassian;
+package atlassian.ratelimit;
 
 public class Main {
 

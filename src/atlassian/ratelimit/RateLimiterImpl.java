@@ -1,9 +1,9 @@
-package atlassian;
+package atlassian.ratelimit;
 
-import atlassian.algo.AlgoFactory;
-import atlassian.algo.RateLimitAlgo;
-import atlassian.dao.ConfigDao;
-import atlassian.dao.Dao;
+import atlassian.ratelimit.algo.AlgoFactory;
+import atlassian.ratelimit.algo.RateLimitAlgo;
+import atlassian.ratelimit.dao.ConfigDao;
+import atlassian.ratelimit.dao.Dao;
 
 public class RateLimiterImpl implements RateLimiter {
 

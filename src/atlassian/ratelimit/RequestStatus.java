@@ -1,4 +1,4 @@
-package atlassian;
+package atlassian.ratelimit;
 
 public enum RequestStatus {
     ALLOW,

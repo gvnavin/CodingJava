@@ -1,7 +1,7 @@
-package atlassian.dao;
+package atlassian.ratelimit.dao;
 
 
-import atlassian.Config;
+import atlassian.ratelimit.Config;
 
 import java.util.HashMap;
 
