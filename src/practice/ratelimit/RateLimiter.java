@@ -1,4 +1,4 @@
-package atlassian.ratelimit;
+package practice.ratelimit;
 
 public interface RateLimiter {
 

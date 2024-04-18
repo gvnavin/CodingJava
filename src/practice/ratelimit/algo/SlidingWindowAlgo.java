@@ -1,7 +1,7 @@
-package atlassian.ratelimit.algo;
+package practice.ratelimit.algo;
 
-import atlassian.ratelimit.Config;
-import atlassian.ratelimit.RequestStatus;
+import practice.ratelimit.Config;
+import practice.ratelimit.RequestStatus;
 
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;

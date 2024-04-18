@@ -1,12 +1,12 @@
-package atlassian.algo;
+package atlassian.ballotvotingalgo;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import practice.ballotvotingalgo.Ballot;
+import practice.ballotvotingalgo.VotingMachine;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class VotingMachineTest {
 

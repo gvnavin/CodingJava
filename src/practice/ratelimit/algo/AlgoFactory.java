@@ -1,7 +1,7 @@
-package atlassian.ratelimit.algo;
+package practice.ratelimit.algo;
 
-import atlassian.ratelimit.AlgoType;
-import atlassian.ratelimit.Config;
+import practice.ratelimit.AlgoType;
+import practice.ratelimit.Config;
 
 public class AlgoFactory {
 

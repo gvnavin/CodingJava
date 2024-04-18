@@ -1,6 +1,6 @@
-package atlassian.ratelimit.algo;
+package practice.ratelimit.algo;
 
-import atlassian.ratelimit.RequestStatus;
+import practice.ratelimit.RequestStatus;
 
 public interface RateLimitAlgo {
 

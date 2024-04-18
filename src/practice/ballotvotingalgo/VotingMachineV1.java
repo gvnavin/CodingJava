@@ -1,4 +1,4 @@
-package atlassian.algo;
+package practice.ballotvotingalgo;
 
 import java.util.*;
 
