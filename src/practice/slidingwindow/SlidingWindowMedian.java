@@ -4,7 +4,7 @@ import java.util.*;
 
 import static practice.utils.Print.repeat;
 
-public class SlidingWindow {
+public class SlidingWindowMedian {
     public static double[] medianSlidingWindow(int[] nums, int k) {
 
         PriorityQueue<Integer> firstPartMaxHeap = new PriorityQueue<>(Comparator.reverseOrder());

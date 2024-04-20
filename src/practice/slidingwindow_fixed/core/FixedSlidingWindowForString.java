@@ -2,7 +2,7 @@ package practice.slidingwindow_fixed.core;
 
 import java.util.HashMap;
 
-public class FixedSlidingStringWindow {
+public class FixedSlidingWindowForString {
 
     int windowBeg = 0;
     int windowEnd = 0;
@@ -12,7 +12,7 @@ public class FixedSlidingStringWindow {
     HashMap<WindowTrackingKey, WindowTrackingValue<String>> windowTracker = new HashMap<>();
     HashMap<String, Integer> windowValueCountTracker = new HashMap<>();
 
-    public FixedSlidingStringWindow(String inp, int windowSize) {
+    public FixedSlidingWindowForString(String inp, int windowSize) {
         this.windowSize = windowSize;
         this.inp = inp;
         windowBeg = 0;

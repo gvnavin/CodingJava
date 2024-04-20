@@ -3,6 +3,7 @@ package practice.slidingwindow_fixed.core;
 
 public class WindowTrackingValue<T> {
     T value;
+    public int sum, max, min;
     private final int windowBeg;
     private final int windowEnd;
 
