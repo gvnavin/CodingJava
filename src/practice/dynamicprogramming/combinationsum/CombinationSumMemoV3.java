@@ -1,4 +1,4 @@
-package practice.dynamicprogramming;
+package practice.dynamicprogramming.combinationsum;
 
 import java.util.ArrayList;
 import java.util.HashMap;

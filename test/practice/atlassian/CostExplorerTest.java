@@ -1,7 +1,8 @@
-package atlassian;
+package practice.atlassian;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import practice.atlassian.*;
 
 import java.time.LocalDate;
 import java.time.Month;

@@ -1,4 +1,4 @@
-package atlassian;
+package practice.atlassian;
 
 public class Plan {
 

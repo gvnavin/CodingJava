@@ -1,8 +1,8 @@
-package practice.dynamicprogramming;
+package practice.dynamicprogramming.coinchange;
 
 import java.util.Arrays;
 
-public class CoinChangeV1Memo {
+public class CoinChangeV1MemoWorking {
 
     public static int coinChange(int[] coins, int total) {
         int[][] memo = new int[coins.length][total + 1];

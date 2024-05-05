@@ -1,4 +1,4 @@
-package practice.dynamicprogramming;
+package practice.dynamicprogramming.knapsack;
 
 public class FindMaxKnapsackProfitV0 {
     public static int findMaxKnapsackProfit(int capacity, int [] weights, int [] values) {

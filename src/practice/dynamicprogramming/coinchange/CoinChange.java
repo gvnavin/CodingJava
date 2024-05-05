@@ -1,4 +1,4 @@
-package practice.dynamicprogramming;
+package practice.dynamicprogramming.coinchange;
 
 public class CoinChange {
 

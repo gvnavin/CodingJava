@@ -1,9 +1,7 @@
-package practice.dynamicprogramming;
+package practice.dynamicprogramming.coinchange;
 
 import java.util.*;
-public class CoinChangeV2Memo {
-
-
+public class CoinChangeV2 {
     static class Node {
         boolean found;
         int cnt;
@@ -31,15 +29,14 @@ public class CoinChangeV2Memo {
     }
 
     public static int coinChange(int[] coins, int total) {
-        Node[][] memo = new Node[coins.length][total + 1];
-        Node ret = recur(coins, total, 0, memo);
+        Node ret = recur(coins, total, 0);
         if (ret.found) {
             return ret.cnt;
         }
         return -1;
     }
 
-    public static Node recur(int[] coins, int total, int i, Node[][] memo) {
+    public static Node recur(int[] coins, int total, int i) {
 
         if (i >= coins.length || total < 0) {
             return Node.valueOf(false);
@@ -49,15 +46,9 @@ public class CoinChangeV2Memo {
             return Node.valueOf(true);
         }
 
-        // System.out.println("memo[i][total] : " + memo[i][total]);
-
-        if (memo[i][total] != null) {
-            return memo[i][total];
-        }
-
-        Node c1 = recur(coins, total, i + 1, memo);
-        Node c2 = recur(coins, total - coins[i], i + 1, memo);
-        Node c3 = recur(coins, total - coins[i], i, memo);
+        Node c1 = recur(coins, total, i + 1);
+        Node c2 = recur(coins, total - coins[i], i + 1);
+        Node c3 = recur(coins, total - coins[i], i);
 
         List<Node> rets = new ArrayList<>();
 
@@ -66,16 +57,17 @@ public class CoinChangeV2Memo {
         }
 
         if (c2.found) {
-            rets.add(Node.valueOf(true, c2.cnt+1));
+            c2.cnt++;
+            rets.add(c2);
         }
 
         if (c3.found) {
-            rets.add(Node.valueOf(true, c3.cnt+1));
+            c3.cnt++;
+            rets.add(c3);
         }
 
         if (rets.isEmpty()) {
-            memo[i][total] = Node.valueOf(false);;
-            return memo[i][total];
+            return Node.valueOf(false);
         }
 
         System.out.println("rets = " + rets);
@@ -92,9 +84,7 @@ public class CoinChangeV2Memo {
 //        List<Node> allChoices = List.of(c1, c2, c3);
 //        Node node = allChoices.stream().filter(it -> it.found).min(Comparator.comparingInt(it->it.cnt)).get();
 
-        memo[i][total] = min;
-
-        return memo[i][total];
+        return min;
 
     }
 }

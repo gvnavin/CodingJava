@@ -8,13 +8,10 @@ public class DecodeWays {
         }
         return recur(decodeStr, 0);
     }
-
     public static int recur(String decodeStr, int i) {
-
         if (i == decodeStr.length()) {
             return 1;
         }
-
         if (i > decodeStr.length()) {
             return 0;
         }

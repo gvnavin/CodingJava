@@ -1,4 +1,4 @@
-package practice.dynamicprogramming;
+package practice.dynamicprogramming.houserobber;
 
 import java.util.Arrays;
 

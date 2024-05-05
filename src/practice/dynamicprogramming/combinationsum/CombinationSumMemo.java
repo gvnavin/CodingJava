@@ -1,7 +1,6 @@
-package practice.dynamicprogramming;
+package practice.dynamicprogramming.combinationsum;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class CombinationSumMemo {

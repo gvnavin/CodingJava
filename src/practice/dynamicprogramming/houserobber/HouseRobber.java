@@ -1,4 +1,4 @@
-package practice.dynamicprogramming;
+package practice.dynamicprogramming.houserobber;
 
 public class HouseRobber {
 

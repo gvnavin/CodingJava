@@ -1,4 +1,4 @@
-package atlassian;
+package practice.atlassian;
 
 import java.util.ArrayList;
 import java.util.List;

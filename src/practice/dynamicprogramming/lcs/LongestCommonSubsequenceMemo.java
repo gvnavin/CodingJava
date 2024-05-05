@@ -1,4 +1,4 @@
-package practice.dynamicprogramming;
+package practice.dynamicprogramming.lcs;
 
 import java.util.Arrays;
 
