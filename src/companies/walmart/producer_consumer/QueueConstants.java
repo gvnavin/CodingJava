@@ -1,4 +1,4 @@
-package companies.walmart;
+package companies.walmart.producer_consumer;
 
 public class QueueConstants {
 
