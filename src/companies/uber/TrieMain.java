@@ -1,14 +1,14 @@
-package uber;
+package companies.uber;
 
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Main {
+public class TrieMain {
     public static void main(String[] args) {
         String[] inp = new String[]{"Water", "Uber", "Train", "Trip", "Universe"};
 //        String[] inp = new String[]{"Train", "Trip"};
-        new Main().solution(inp);
+        new TrieMain().solution(inp);
     }
 
 

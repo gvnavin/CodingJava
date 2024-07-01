@@ -1,4 +1,4 @@
-package grpon;
+package companies.grpon;
 
 import java.util.HashMap;
 
