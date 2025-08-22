@@ -1,4 +1,4 @@
-package mt_practice.blockingqueue.withmutex;
+package companies.mt_practice.blockingqueue.withmutex;
 
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;

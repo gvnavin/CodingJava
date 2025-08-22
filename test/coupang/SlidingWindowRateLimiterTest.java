@@ -1,9 +1,10 @@
 package coupang;
 
+import companies.coupang.Config;
+import companies.coupang.RateLimiter;
+import companies.coupang.SlidingWindowRateLimiter;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class SlidingWindowRateLimiterTest {
 

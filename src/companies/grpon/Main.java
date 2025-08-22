@@ -5,6 +5,14 @@ import java.util.HashMap;
 public class Main {
 
     /*
+Design a data structure which will give us O(1) for
+ - insert(arg)
+ - remove (arg)
+ - contains(arg)
+ - getRandom()
+
+*/
+    /*
 
 // Design a data structure which will give us O(1) for
 // - insert(arg)
@@ -24,4 +32,26 @@ public class Main {
 //        mp.get(noOfElements-3)
 
     }
+
+
+    static class DataStructure {
+
+        public void insert(String arg) {
+
+        }
+
+        public void remove(String arg) {
+
+        }
+
+        public boolean contains(String arg) {
+            return false;
+        }
+
+        public String getRandom() {
+            return "";
+        }
+
+    }
+
 }

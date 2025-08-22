@@ -1,4 +1,4 @@
-package mt_practice.circuitbreaker;
+package companies.mt_practice.circuitbreaker;
 
 public enum CircuitState {
     OPEN,

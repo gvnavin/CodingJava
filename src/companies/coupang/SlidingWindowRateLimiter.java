@@ -1,18 +1,18 @@
-package coupang;
+package companies.coupang;
 
 import java.util.Comparator;
 import java.util.Map;
 import java.util.PriorityQueue;
 import java.util.concurrent.ConcurrentHashMap;
 
-public class SlidingWindowRateLimiter_V3 implements RateLimiter {
+public class SlidingWindowRateLimiter implements RateLimiter {
 
     private final Config config;
 
     //in real world, it can be some db redis
     private final Map<String, PriorityQueue<Long>> clientIdToTimestampMap = new ConcurrentHashMap<String, PriorityQueue<Long>>();
 
-    public SlidingWindowRateLimiter_V3(Config config) {
+    public SlidingWindowRateLimiter(Config config) {
         this.config = config;
     }
 
@@ -31,8 +31,6 @@ public class SlidingWindowRateLimiter_V3 implements RateLimiter {
 //    public synchronized boolean isAllowed(String clientId) {
     public boolean isAllowed(String clientId) {
 
-        synchronized (clientId) {
-
             //new client
             if (!clientIdToTimestampMap.containsKey(clientId)) {
                 PriorityQueue<Long> pq = new PriorityQueue<>(Comparator.naturalOrder());
@@ -41,12 +39,14 @@ public class SlidingWindowRateLimiter_V3 implements RateLimiter {
                 return true;
             }
 
+            //we can use concurrentLinkedQueue
             PriorityQueue<Long> pq = clientIdToTimestampMap.get(clientId);
 
 //        System.out.println("pq = " + pq);
 
             long currentTimeMillis = System.currentTimeMillis();
             //removing old entries
+            //if we are using concurrent linked queue, we need to do it linear time.
             while (!pq.isEmpty() && pq.peek() < currentTimeMillis - (config.getNumberOfSeconds() * 1000)) {
                 pq.poll();
             }
@@ -59,6 +59,5 @@ public class SlidingWindowRateLimiter_V3 implements RateLimiter {
                 return false;
             }
 
-        }
     }
 }

@@ -33,14 +33,14 @@ public class Coding {
             this.totalSize = totalSize;
         }
 
-        @Override
-        public boolean equals(Object obj) {
-            if(obj instanceof Main.Pair) {
-                Collection other = (Collection) obj;
-                return this.name == other.name;
-            }
-            return false;
-        }
+//        @Override
+//        public boolean equals(Object obj) {
+//            if(obj instanceof Main.Pair) {
+//                Collection other = (Collection) obj;
+//                return this.name == other.name;
+//            }
+//            return false;
+//        }
 
         @Override
         public int hashCode() {

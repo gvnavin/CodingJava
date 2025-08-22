@@ -1,4 +1,4 @@
-package mt_practice.tokenbucket.usingLastRequestTime;
+package companies.mt_practice.tokenbucket.usingLastRequestTime;
 
 public class Main {
     public static void main( String args[] ) throws InterruptedException {

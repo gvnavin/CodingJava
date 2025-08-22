@@ -1,4 +1,4 @@
-package mt_practice.tokenbucket.usingBgfillerthread;
+package companies.mt_practice.tokenbucket.usingBgfillerthread;
 
 import java.util.HashSet;
 import java.util.Set;

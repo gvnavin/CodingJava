@@ -2,6 +2,15 @@ package practice.stack;
 
 import java.util.Stack;
 
+
+//Given a string, str, the task is to remove all the duplicate adjacent characters from the given string.
+//
+//Examples:
+//
+//
+//
+//Input: str= “azxxzy”
+//Output: ay
 public class RemoveDuplicates {
     public static String removeDuplicates(String s) {
         Stack<Character> stk = new Stack<>();
@@ -25,3 +34,4 @@ public class RemoveDuplicates {
         return sb.reverse().toString();
     }
 }
+

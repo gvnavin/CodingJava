@@ -1,4 +1,4 @@
-package mt_practice.tokenbucket.usingLastRequestTime;
+package companies.mt_practice.tokenbucket.usingLastRequestTime;
 
 import java.util.HashSet;
 import java.util.Set;

@@ -1,4 +1,4 @@
-package coupang;
+package companies.coupang;
 
 // uber level config, so that we can extend
 public class Config {

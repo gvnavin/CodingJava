@@ -1,18 +1,18 @@
-package coupang;
+package companies.coupang;
 
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.PriorityQueue;
 
-public class SlidingWindowRateLimiter_V2 implements RateLimiter {
+public class SlidingWindowRateLimiter_V0 implements RateLimiter {
 
     private final Config config;
 
     //in real world, it can be some db redis
     private final Map<String, PriorityQueue<Long>> clientIdToTimestampMap = new HashMap<>();
 
-    public SlidingWindowRateLimiter_V2(Config config) {
+    public SlidingWindowRateLimiter_V0(Config config) {
         this.config = config;
     }
 
@@ -39,7 +39,7 @@ public class SlidingWindowRateLimiter_V2 implements RateLimiter {
 
         long currentTimeMillis = System.currentTimeMillis();
         //removing old entries
-        while(!pq.isEmpty() && pq.peek() < currentTimeMillis - (config.getNumberOfSeconds()*1000)) {
+        while(!pq.isEmpty() && pq.peek() < currentTimeMillis - 1000) {
             pq.poll();
         }
 

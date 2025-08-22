@@ -1,4 +1,4 @@
-package coupang;
+package companies.coupang;
 
 public class Main {
     public static void main(String[] args) {

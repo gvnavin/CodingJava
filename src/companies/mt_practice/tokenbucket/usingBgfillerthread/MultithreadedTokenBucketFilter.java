@@ -1,4 +1,4 @@
-package mt_practice.tokenbucket.usingBgfillerthread;
+package companies.mt_practice.tokenbucket.usingBgfillerthread;
 
 public class MultithreadedTokenBucketFilter {
 

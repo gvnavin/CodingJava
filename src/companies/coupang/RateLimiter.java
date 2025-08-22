@@ -1,4 +1,4 @@
-package coupang;
+package companies.coupang;
 
 public interface RateLimiter {
 

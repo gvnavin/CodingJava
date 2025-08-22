@@ -1,4 +1,4 @@
-package mt_practice.blockingqueue.withsychobj;
+package companies.mt_practice.blockingqueue.withsychobj;
 
 public class MainSyncObj {
 
